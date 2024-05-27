@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+Sorting Showcase
+ICS4U
+Stuart
+Display of sorting on a webpage.
+History:
+December 18: Program Creation
+December 20: Fix Array reparse and getting value of the select.
+-->
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Sorting</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="script.js"></script>
+    </head>
+    <body>
+        <div class="row">
+            <p class="column"><button onclick="generateArray()">Generate Array</button></p>
+            <p class="column" id="generatedArray"></p>
+        </div>
+        
+        <!--Dropdown-->
+        <label for="sortDirection">Sort:</label>
+        <select name="direction" id="sortDirection">
+            <option value="ascending">Ascending</option>
+            <option value="descending">Descending</option>
+        </select>
+
+        <!--Sort buttons-->
+        <!--First param is the array, second is the sort type, third is whether to sort ascending or not.-->
+        <!--Get value of select from: https://stackoverflow.com/questions/5224071/javascript-a-way-check-if-an-option-of-the-select-tag-is-selected-->
+        <div class="row">
+            <p class="column"><button onclick="sortArray(JSON.parse('[' + document.getElementById('generatedArray').innerHTML + ']'), 'bubble', (document.getElementById('sortDirection').value === 'ascending'))">Bubble Sort</button></p>
+            <p class="column" id="bubble"></p>
+        </div>
+        <div class="row">
+            <p class="column"><button onclick="sortArray(JSON.parse('[' + document.getElementById('generatedArray').innerHTML + ']'), 'selection', (document.getElementById('sortDirection').value === 'ascending'))">Selection Sort</button></p>
+            <p class="column" id="selection"></p>
+        </div>
+        <div class="row">
+            <p class="column"><button onclick="sortArray(JSON.parse('[' + document.getElementById('generatedArray').innerHTML + ']'), 'insertion', (document.getElementById('sortDirection').value === 'ascending'))">Insertion Sort</button></p>
+            <p class="column" id="insertion"></p>
+        </div>
+
+    </body>
+</html>
