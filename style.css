@@ -11,3 +11,38 @@ html {
     padding-left: 5px;
     padding-right: 5px;
 }
+
+.amongrow {
+    display: flex;
+}
+
+.amongcolumn {
+    padding: 10px;
+}
+
+#amonguse {
+    border-collapse: collapse;
+    width: 100px;
+    height: 100px;
+    margin-left: auto;
+    margin-top: 5px;
+    margin-bottom:5px
+}
+
+td.mongus {
+    background-color: rgba(240, 32, 32, 0.741)
+}
+
+#visor{
+    background-color: rgb(77, 157, 184);
+}
+
+#amongback {
+    width: 20px;
+    height: 50px;
+    margin-top: auto;
+    margin-bottom: 38px;
+    margin-left: 5px;
+    margin-right:10px;
+    background-color: rgba(240, 32, 32, 0.741);
+}
