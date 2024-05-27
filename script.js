@@ -7,7 +7,10 @@ function getBrithDay(days) {
     var date = new Date('0000-01-01 12:00:00.000');
     var mseconds = days*24*60*60*1000;
     
-    const addMiliSecondstoDate= (date, mseconds)
+    const addMiliSecondstoDate= (date, mseconds);
+
+    return addMiliSecondstoDate;
+
 }
 
 
