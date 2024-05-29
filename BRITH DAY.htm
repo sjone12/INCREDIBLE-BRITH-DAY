@@ -19,9 +19,10 @@ History:
         </div>
 
         <div>
-            <input type="color" id="day-picker" onchange="getBrithDay(this)">
+            <input type="color" id="day-picker" onchange="setBrithDay(document.getElementById('day-picker').value)">
         </div>
-
+        
+        
         <div class="amongrow">
                 <table id="amonguse" class="amongcolumn">
                     <tr>
@@ -1063,7 +1064,11 @@ History:
                     </tr>
                     <tr></tr>
                 </table>
-            </div>
+        </div>
+        
+        <div class="row">
+            <p class="column" id="date-display"><button></button></p>
+        </div>
 
     </body>
 </html>

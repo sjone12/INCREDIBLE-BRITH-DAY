@@ -3,15 +3,22 @@ ICS4U
 History:
 */
 
-function getBrithDay(parsedNum) {
+function setBrithDay(hex) {
+    document.getElementById("date-display").innerHTML = String(getBrithDay(hex));
+};
+
+function getBrithDay(hex) {
     //https://www.30secondsofcode.org/js/s/add-minutes-hours-days-to-date
     //site referenced for this section of code
     var date = new Date('0000-01-01 12:00:00.000');
-    var mseconds = randomize(parsedNum);//*24*60*60*1000;
+    var mseconds = randomize(getColourNums(hex));//*24*60*60*1000;
     date.setTime(date.getTime() + mseconds);
     return date;
 };
 
+function getColourNums(hex) {
+    return Number(hex[1-3]), Number(hex[3-5]), Number(hex[5-7]);
+};
 
 function randomize(num1, num2, num3) {
     num1, num2, num3 = randomXor(randomDigits(num1, num2, num3));
