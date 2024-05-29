@@ -3,59 +3,56 @@ ICS4U
 History:
 */
 
-function getBrithDay(days) {
+function getBrithDay(parsedNum) {
     var date = new Date('0000-01-01 12:00:00.000');
-    var mseconds = days*24*60*60*1000;
-    
-    const addMiliSecondstoDate= (date, mseconds);
-
-    return addMiliSecondstoDate;
-
-}
+    var mseconds = randomize(parsedNum);//*24*60*60*1000;
+    date.setTime(date.getTime() + mseconds);
+    return date;
+};
 
 
 function randomize(num1, num2, num3) {
-    num1, num2, num3 = randomXor(randomDigits(num1, num2, num3))
+    num1, num2, num3 = randomXor(randomDigits(num1, num2, num3));
 
-    return Math.pow(Math.pow(num2, num1), num3)
+    return Math.pow(Math.pow(num2, num1), num3);
 };
 
 function singleRandomDigits(num) {
-    num = String(num)
-    chars = ""
+    num = String(num);
+    chars = "";
     for (var i = 0; i < num.length; i++) {
-        var replacer
+        var replacer;
         if (num[i] == "0") {
-            replacer = "7"
+            replacer = "7";
         } else if (num[i] == "8") {
-            replacer = "9"
+            replacer = "9";
         } else if (num[i] == "5") {
-            replacer = "3"
+            replacer = "3";
         } else if (num[i] == "2") {
-            replacer = "3"
+            replacer = "3";
         } else if (num[i] == "9") {
-            replacer = "8"
+            replacer = "8";
         } else if (num[i] == "7") {
-            replacer = 19
+            replacer = 19;
         } else if (num[i] % 3 == 0) {
-            replacer = "4"
+            replacer = "4";
         } else if (num[i] == "1") {
-            replacer = "8"
+            replacer = "8";
         } else {
-            replacer = "0"
+            replacer = "0";
         }
-        chars.concat(replacer)
+        chars.concat(replacer);
     }
-    return Number(chars)
-}
+    return Number(chars);
+};
 
 function randomDigits(num1, num2, num3) {
-    num1 = String(num1)
-    return num1, num2, num3
+    num1 = String(num1);
+    return num1, num2, num3;
 }
 
 function randomXor(num1, num2, num3) {
-    return num1 ^ num2 | num1, num3 ^ 170, num1 & 60
+    return num1 ^ num2 | num1, num3 ^ 170, num1 & 60;
 }
 
 // function generateArray() {
