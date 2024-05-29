@@ -4,7 +4,10 @@ History:
 */
 
 function setBrithDay(hex) {
-    document.getElementById("date-display").innerHTML = String(getBrithDay(hex));
+    var date = getBrithDay(hex)
+    document.getElementById("date-display").innerHTML = date;
+    console.log(date)
+    return
 };
 
 function getBrithDay(hex) {
