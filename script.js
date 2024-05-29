@@ -6,27 +6,41 @@ History:
 function setBrithDay(hex) {
     var date = getBrithDay(hex)
     document.getElementById("date-display").innerHTML = date;
-    console.log(date)
+    // console.log(date)
     return
 };
 
 function getBrithDay(hex) {
     //https://www.30secondsofcode.org/js/s/add-minutes-hours-days-to-date
     //site referenced for this section of code
-    var date = new Date('0000-01-01 12:00:00.000');
-    var mseconds = randomize(getColourNums(hex));//*24*60*60*1000;
-    date.setTime(date.getTime() + mseconds);
+    var date = new Date('0101-01-01 12:00:00.000');
+    var randomNum = randomize(getColourNums(hex));//*24*60*60*1000;
+    while (randomNum > 999_000_000_000) {
+        randomNum = parseInt(String(randomNum).slice(0, -1))
+        // console.log(randomNum);
+    }
+    date.setTime(date.getTime() + randomNum * 1_000);
     return date;
 };
 
 function getColourNums(hex) {
-    return Number(hex[1-3]), Number(hex[3-5]), Number(hex[5-7]);
+    // console.log(["get nums", hex, hex.slice(1, 3), hex.slice(3, 5), hex.slice(5, 7), parseInt(hex.slice(1, 3), 16), parseInt(hex.slice(3, 5), 16), parseInt(hex.slice(5, 7), 16)]);
+    //from https://stackoverflow.com/questions/1337419/how-do-you-convert-numbers-between-different-bases-in-javascript
+    return Array(Number(parseInt(hex.slice(1, 3), 16)), Number(parseInt(hex.slice(3, 5), 16)), Number(parseInt(hex.slice(5, 7), 16)));
 };
 
-function randomize(num1, num2, num3) {
-    num1, num2, num3 = randomXor(randomDigits(num1, num2, num3));
+function randomize(tuple) {
+    var num1 = tuple[0];
+    var num2 = tuple[1];
+    var num3 = tuple[2];
+    // console.log(["start randomize", num1, num2, num3]);
+    var tuple = randomXor(randomDigits(Array(num1, num2, num3)));
+    var num1 = tuple[0];
+    var num2 = tuple[1];
+    var num3 = tuple[2];
+    // console.log(["end randomize", num1, num2, num3]);
 
-    return Math.pow(Math.pow(num2, num1), num3);
+    return num2 * num1 * num3;
 };
 
 function singleRandomDigits(num) {
@@ -35,7 +49,7 @@ function singleRandomDigits(num) {
     for (var i = 0; i < num.length; i++) {
         var replacer;
         if (num[i] == "0") {
-            replacer = "7";
+            replacer = "27";
         } else if (num[i] == "8") {
             replacer = "9";
         } else if (num[i] == "5") {
@@ -45,7 +59,7 @@ function singleRandomDigits(num) {
         } else if (num[i] == "9") {
             replacer = "8";
         } else if (num[i] == "7") {
-            replacer = 19;
+            replacer = "19";
         } else if (num[i] % 3 == 0) {
             replacer = "4";
         } else if (num[i] == "1") {
@@ -53,19 +67,26 @@ function singleRandomDigits(num) {
         } else {
             replacer = "0";
         }
-        chars.concat(replacer);
+        var chars = chars.concat(replacer);
     }
-    return Number(chars);
+    // console.log(["chars", chars])
+    return parseInt(chars);
 };
 
-function randomDigits(num1, num2, num3) {
-    num1 = String(num1);
-    return num1, num2, num3;
-}
+function randomDigits(tuple) {
+    var num1 = String(tuple[0]);
+    var num2 = String(tuple[1]);
+    var num3 = String(tuple[2]);
+    // console.log(["random digs", num1, num2, num3]);
+    return Array(singleRandomDigits(num1), singleRandomDigits(num2), singleRandomDigits(num3));
+};
 
-function randomXor(num1, num2, num3) {
-    return num1 ^ num2 | num1, num3 ^ 170, num1 & 60;
-}
+function randomXor(tuple) {
+    var num1 = tuple[0];
+    var num2 = tuple[1];
+    var num3 = tuple[2];
+    return Array(63 * Number(num1 ^ num2 | num1) + 1, Number(31 * num3 ^ 7) + 1, 12 * Number(num1 & 6) + 1);
+};
 
 // function generateArray() {
 //     /*Generate an array of length 10-20 with values from 0-99, randomly. */
