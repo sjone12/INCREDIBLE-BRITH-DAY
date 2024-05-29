@@ -4,6 +4,8 @@ History:
 */
 
 function getBrithDay(parsedNum) {
+    //https://www.30secondsofcode.org/js/s/add-minutes-hours-days-to-date
+    //site referenced for this section of code
     var date = new Date('0000-01-01 12:00:00.000');
     var mseconds = randomize(parsedNum);//*24*60*60*1000;
     date.setTime(date.getTime() + mseconds);
