@@ -67,6 +67,11 @@ function randomXor(num1, num2, num3) {
     return num1 ^ num2 | num1, num3 ^ 170, num1 & 60;
 }
 
+
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
 // function generateArray() {
 //     /*Generate an array of length 10-20 with values from 0-99, randomly. */
 //     var randomArray = new Array;

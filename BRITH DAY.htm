@@ -1,8 +1,8 @@
+<!DOCTYPE html>
 <!--
 ICS4U
 History:
 -->
-<!DOCTYPE html>
 <html>
     <head>
     <meta charset="utf-8">
@@ -19,29 +19,19 @@ History:
         </div>
 
         <div>
-            <input type="color" id="day-picker" onchange="setBrithDay(document.getElementById('day-picker').value)">
+            <input type="color" id="day-picker" onchange="getBrithDay(this)">
         </div>
-        
-        
+
         <div class="amongrow">
                 <table id="amonguse" class="amongcolumn">
                     <tr>
                         <td class="mongus"></td>
                         <td class="mongus"></td>
-                        <td class="mongus"></td>
-                        <td class="mongus"></td>
-                        <td class="mongus"></td>
                     </tr>
                     <tr>
                         <td class="mongus"></td>
-                        <td class="mongus"></td>
-                        <td class="mongus"></td>
-                        <td class="mongus"></td>
-                        <td class="mongus"></td>
                     </tr>
                     <tr>
-                        <td class="mongus"></td>
-                        <td id="visor" colspan="2" rowspan="2"></td>
                         <td class="mongus"></td>
                         <td class="mongus"></td>
                     </tr>
@@ -1064,11 +1054,19 @@ History:
                     </tr>
                     <tr></tr>
                 </table>
-        </div>
-        
-        <div class="row">
-            <button><p class="column" id="date-display"></button>
-        </div>
+            </div>
+
+            <!-- pop html -->
+            <a class="button" href="#popup1">Pop up button</a>
+
+            <div id="popup1" class="overlay">
+                <div class="popup">
+                    <a class="close" href="#">😺</a>
+                    <div class="content">
+                        Thank to pop me out of that button, but now i'm done so you can close this window.
+                    </div>
+                </div>
+            </div>
 
     </body>
 </html>
