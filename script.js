@@ -67,11 +67,7 @@ function singleRandomDigits(num) {
 };
 
 function randomDigits(tuple) {
-    let num1 = String(tuple[0]);
-    let num2 = String(tuple[1]);
-    let num3 = String(tuple[2]);
-    // console.log(["random digs", num1, num2, num3]);
-    return Array(singleRandomDigits(num1), singleRandomDigits(num2), singleRandomDigits(num3));
+    return Array(singleRandomDigits(tuple[0]), singleRandomDigits(tuple[1]), singleRandomDigits(tuple[2]));
 };
 
 function randomBitwiseOperations(tuple) {
