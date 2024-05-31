@@ -6,7 +6,7 @@ History:
 function setBrithDay(hex) {
     let date = getBrithDay(hex)
     document.getElementById("date-display").innerHTML = date;
-    console.log(date)
+    // console.log(date)
     return
 };
 
@@ -17,7 +17,7 @@ function getBrithDay(hex) {
     let randomNum = randomize(getColourNums(hex));//*24*60*60*1000;
     while (randomNum > 300_000_000_000) {
         randomNum = parseInt(String(randomNum).slice(0, -1))
-        console.log(randomNum);
+        // console.log(randomNum);
     }
     date.setTime(date.getTime() + randomNum * 1_000);
     return date;
@@ -29,16 +29,16 @@ function getColourNums(hex) {
 };
 
 function randomize(array) {
-    console.log(["start randomize", array]);
+    // console.log(["start randomize", array]);
     var array = randomBitwiseOperations(randomDigits(array));
     let fibbnum = array[2];
     while (fibbnum > 22) {
         fibbnum = Math.floor(fibbnum / 10);
     };
-    console.log(["fibbnum", fibbnum])
-    console.log(["before fibbonaci", array]);
-    array[2] = fibonacci(Math.floor(array[2]))
-    console.log(["end randomize", array]);
+    // console.log(["fibbnum", fibbnum])
+    // console.log(["before fibbonaci", array]);
+    array[2] = fibonacci(fibbnum)
+    // console.log(["end randomize", array]);
 
     return array[0] * array[1] * array[2];
 };
@@ -69,7 +69,7 @@ function singleRandomDigits(num) {
         }
         chars = chars.concat(replacer);
     }
-    console.log(["chars", chars])
+    // console.log(["chars", chars])
     return parseInt(chars);
 };
 
@@ -78,7 +78,7 @@ function randomDigits(tuple) {
 };
 
 function randomBitwiseOperations(array) {
-    console.log(["bitwise", array])
+    // console.log(["bitwise", array])
     let num1 = array[0];
     let num2 = array[1];
     let num3 = array[2];
@@ -89,9 +89,9 @@ function fibonacci(num) {
     // take the nth fibbonacci number
     // console.log(num);
     if (num <= 1) {
+        // console.log(["if hit", num])
         // handles all negatives, 0 etc.
         return num;
-    } else {
-        return fibonacci(num - 1) + fibonacci(num - 2);
     };
+    return fibonacci(num - 1) + fibonacci(num - 2);
 };
