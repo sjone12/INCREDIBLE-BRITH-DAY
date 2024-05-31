@@ -29,17 +29,11 @@ function getColourNums(hex) {
 };
 
 function randomize(tuple) {
-    let num1 = tuple[0];
-    let num2 = tuple[1];
-    let num3 = tuple[2];
     // console.log(["start randomize", num1, num2, num3]);
-    var tuple = randomXor(randomDigits(Array(num1, num2, num3)));
-    num1 = tuple[0];
-    num2 = tuple[1];
-    num3 = tuple[2];
+    var tuple = randomBitwiseOperations(randomDigits(tuple));
     // console.log(["end randomize", num1, num2, num3]);
 
-    return num2 * num1 * num3;
+    return tuple[0] * tuple[1] * tuple[2];
 };
 
 function singleRandomDigits(num) {
@@ -80,7 +74,7 @@ function randomDigits(tuple) {
     return Array(singleRandomDigits(num1), singleRandomDigits(num2), singleRandomDigits(num3));
 };
 
-function randomXor(tuple) {
+function randomBitwiseOperations(tuple) {
     let num1 = tuple[0];
     let num2 = tuple[1];
     let num3 = tuple[2];
