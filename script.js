@@ -24,9 +24,8 @@ function getBrithDay(hex) {
 };
 
 function getColourNums(hex) {
-    // console.log(["get nums", hex, hex.slice(1, 3), hex.slice(3, 5), hex.slice(5, 7), parseInt(hex.slice(1, 3), 16), parseInt(hex.slice(3, 5), 16), parseInt(hex.slice(5, 7), 16)]);
     //from https://stackoverflow.com/questions/1337419/how-do-you-convert-numbers-between-different-bases-in-javascript
-    return Array(Number(parseInt(hex.slice(1, 3), 16)), Number(parseInt(hex.slice(3, 5), 16)), Number(parseInt(hex.slice(5, 7), 16)));
+    return Array(parseInt(hex.slice(1, 3), 16), parseInt(hex.slice(3, 5), 16), parseInt(hex.slice(5, 7), 16));
 };
 
 function randomize(tuple) {
