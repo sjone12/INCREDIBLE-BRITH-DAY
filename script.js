@@ -49,7 +49,7 @@ function singleRandomDigits(num) {
     for (var i = 0; i < num.length; i++) {
         var replacer;
         if (num[i] == "0") {
-            replacer = "27";
+            replacer = "2";
         } else if (num[i] == "8") {
             replacer = "9";
         } else if (num[i] == "5") {
@@ -59,7 +59,7 @@ function singleRandomDigits(num) {
         } else if (num[i] == "9") {
             replacer = "8";
         } else if (num[i] == "7") {
-            replacer = "19";
+            replacer = "1";
         } else if (num[i] % 3 == 0) {
             replacer = "4";
         } else if (num[i] == "1") {
