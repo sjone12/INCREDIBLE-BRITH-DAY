@@ -6,7 +6,7 @@ History:
 function setBrithDay(hex) {
     let date = getBrithDay(hex)
     document.getElementById("date-display").innerHTML = date;
-    // console.log(date)
+    console.log(date)
     return
 };
 
@@ -17,7 +17,7 @@ function getBrithDay(hex) {
     let randomNum = randomize(getColourNums(hex));//*24*60*60*1000;
     while (randomNum > 999_000_000_000) {
         randomNum = parseInt(String(randomNum).slice(0, -1))
-        // console.log(randomNum);
+        console.log(randomNum);
     }
     date.setTime(date.getTime() + randomNum * 1_000);
     return date;
@@ -28,12 +28,14 @@ function getColourNums(hex) {
     return Array(parseInt(hex.slice(1, 3), 16), parseInt(hex.slice(3, 5), 16), parseInt(hex.slice(5, 7), 16));
 };
 
-function randomize(tuple) {
-    // console.log(["start randomize", num1, num2, num3]);
-    var tuple = randomBitwiseOperations(randomDigits(tuple));
-    // console.log(["end randomize", num1, num2, num3]);
+function randomize(array) {
+    console.log(["start randomize", array]);
+    var array = randomBitwiseOperations(randomDigits(array));
+    console.log(["before fibbonaci", array]);
+    array[2] = fibonacci(Math.floor(array[2] / 1000))
+    console.log(["end randomize", array]);
 
-    return tuple[0] * tuple[1] * tuple[2];
+    return array[0] * array[1] * array[2];
 };
 
 function singleRandomDigits(num) {
@@ -62,7 +64,7 @@ function singleRandomDigits(num) {
         }
         chars = chars.concat(replacer);
     }
-    // console.log(["chars", chars])
+    console.log(["chars", chars])
     return parseInt(chars);
 };
 
@@ -70,9 +72,21 @@ function randomDigits(tuple) {
     return Array(singleRandomDigits(tuple[0]), singleRandomDigits(tuple[1]), singleRandomDigits(tuple[2]));
 };
 
-function randomBitwiseOperations(tuple) {
-    let num1 = tuple[0];
-    let num2 = tuple[1];
-    let num3 = tuple[2];
-    return Array(63 * Number(num1 ^ num2 | num1) + 1, Number(31 * num3 ^ 7) + 1, 12 * Number(num1 & 6) + 1);
+function randomBitwiseOperations(array) {
+    console.log(["bitwise", array])
+    let num1 = array[0];
+    let num2 = array[1];
+    let num3 = array[2];
+    return [63 * Number(num1 ^ num2 | num1) + 1, Number(31 * num3 ^ 7) + 1, Number(num1 | 1) + 3];
+};
+
+function fibonacci(num) {
+    // take the nth fibbonacci number
+    console.log(num);
+    if (num <= 1) {
+        // handles all negatives, 0 etc.
+        return num;
+    } else {
+        return fibonacci(num - 1) + fibonacci(num - 2);
+    };
 };
