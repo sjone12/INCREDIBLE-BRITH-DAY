@@ -13,7 +13,7 @@ function setBrithDay(hex) {
 function getBrithDay(hex) {
     //https://www.30secondsofcode.org/js/s/add-minutes-hours-days-to-date
     //site referenced for this section of code
-    let date = new Date('1501-02-17 12:05:30.021');
+    let date = new Date('1009-02-19 12:05:30.021');
     let randomNum = randomize(getColourNums(hex));//*24*60*60*1000;
     while (randomNum > 300_000_000_000) {
         randomNum = parseInt(String(randomNum).slice(0, -1))
